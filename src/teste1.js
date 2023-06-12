@@ -9,10 +9,16 @@ const getUser = (req, res) => {
     return res.status(404).send('Usuário não encontrado.')
   }
 
+  user.viewedTimes = user.viewedTimes ? user.viewedTimes + 1 : 1
+
   return res.send(user)
 }
 
 const getUsers = (req, res) => {
+  data.forEach((user) => {
+    user.viewedTimes = user.viewedTimes ? user.viewedTimes + 1 : 1
+  })
+
   return res.send(data)
 }
 
