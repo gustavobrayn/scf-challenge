@@ -5,6 +5,10 @@ const getUser = (req, res) => {
 
   const user = data.find((user) => user.name === name)
 
+  if (!user) {
+    return res.status(404).send('Usuário não encontrado.')
+  }
+
   return res.send(user)
 }
 
