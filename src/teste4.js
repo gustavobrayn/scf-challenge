@@ -6,6 +6,10 @@ module.exports = function (req, res) {
 
   const user = data.find((user) => user.id == id)
 
+  if (!user) {
+    return res.status(404).send('Usuário não encontrado.')
+  }
+
   user.name = name
   user.job = job
 
