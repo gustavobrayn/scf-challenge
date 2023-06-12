@@ -10,8 +10,12 @@ module.exports = function (req, res) {
     return res.status(404).send('Usuário não encontrado.')
   }
 
+  if (!name || !job) {
+    return res.status(400).send('Não foi possível atualizar o usuário.')
+  }
+
   user.name = name
   user.job = job
 
-  res.send(user)
+  return res.send(user)
 }
