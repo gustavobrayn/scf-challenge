@@ -7,7 +7,10 @@ module.exports = function (req, res) {
     return res.status(400).send('Não foi possível criar um novo usuário.')
   }
 
+  const lastUser = data.at(-1)
+
   const newUser = {
+    id: lastUser.id + 1,
     name,
     job,
   }
