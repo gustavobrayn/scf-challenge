@@ -5,5 +5,9 @@ module.exports = function (req, res) {
 
   const user = data.find((user) => user.name === name)
 
-  res.send(`Usuário ${user.name} foi lido ${user.viewedTimes} vezes.`)
+  if (!user.viewed_times) {
+    return res.send(`Usuário ${user.name} não foi lido nenhuma vez.`)
+  }
+
+  return res.send(`Usuário ${user.name} foi lido ${user.viewedTimes} vezes.`)
 }
