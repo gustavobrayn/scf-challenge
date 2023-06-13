@@ -1,11 +1,10 @@
-
-const fakeData  =  [
-    {
-        id: 1,
-        name: "João Oliveira",
-        job: "Desenvolvedor"
-    }
+const fakeData = [
+  {
+    id: 1,
+    name: 'João Oliveira',
+    job: 'Desenvolvedor',
+    allowedActions: ['update', 'delete'],
+  },
 ]
 
-
-module.exports = fakeData;
+module.exports = fakeData

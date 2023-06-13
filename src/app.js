@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const accessControlList = require('./middlewares/accessControlList')
 const app = express()
 
 const teste1 = require('./teste1')
@@ -30,8 +31,8 @@ app.get('/', function (req, res) {
 app.get('/user', teste1.getUser)
 app.get('/users', teste1.getUsers)
 app.post('/users', teste2)
-app.delete('/users', teste3)
-app.put('/users', teste4)
+app.delete('/users', accessControlList, teste3)
+app.put('/users', accessControlList, teste4)
 app.get('/users/access', teste5)
 
 const port = 3000
