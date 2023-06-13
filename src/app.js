@@ -40,3 +40,5 @@ app.listen(port, function () {
   // eslint-disable-next-line no-console
   console.log(`Express server listening on port ${port}`)
 })
+
+module.exports = app
