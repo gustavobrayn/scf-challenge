@@ -10,7 +10,7 @@ module.exports = function (req, res) {
   const lastUser = data.at(-1)
 
   const newUser = {
-    id: lastUser.id + 1,
+    id: lastUser ? lastUser.id + 1 : 1,
     name,
     job,
   }
