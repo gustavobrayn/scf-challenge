@@ -2,7 +2,7 @@ const data = require('../fakeData')
 
 module.exports = (req, res, next) => {
   if (!req.headers.authorization) {
-    return res.status(401).send('Não autorizado')
+    return res.status(401).send('Não autorizado.')
   }
 
   const encoded = req.headers.authorization.split(' ')[1]
@@ -30,4 +30,6 @@ module.exports = (req, res, next) => {
       }
       break
   }
+
+  return res.status(401).send('Não autorizado.')
 }
