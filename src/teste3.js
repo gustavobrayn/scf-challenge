@@ -12,5 +12,5 @@ module.exports = function (req, res) {
 
   data.splice(userIndex, 1)
 
-  return res.send('success')
+  return res.send('Sucesso.')
 }
