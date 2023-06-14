@@ -5,7 +5,11 @@ module.exports = function (req, res) {
 
   const user = data.find((user) => user.name === name)
 
-  if (!user.viewed_times) {
+  if (!user) {
+    return res.status(404).send('Usuário não encontrado.')
+  }
+
+  if (!user.viewedTimes) {
     return res.send(`Usuário ${user.name} não foi lido nenhuma vez.`)
   }
 
