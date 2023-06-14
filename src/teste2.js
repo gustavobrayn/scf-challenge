@@ -13,6 +13,8 @@ module.exports = function (req, res) {
     id: lastUser ? lastUser.id + 1 : 1,
     name,
     job,
+    viewedTimes: 0,
+    allowedActions: [],
   }
 
   data.push(newUser)
