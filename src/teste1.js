@@ -1,25 +1,24 @@
-const data = require('./fakeData')
+const UserModel = require('./models/User')
 
 const getUser = (req, res) => {
   const { name } = req.query
 
-  const user = data.find((user) => user.name === name)
+  const user = UserModel.findOne(
+    { $key: 'name', $value: name },
+    { incrementViewedTimes: true }
+  )
 
   if (!user) {
     return res.status(404).send('Usuário não encontrado.')
   }
 
-  user.viewedTimes = user.viewedTimes ? user.viewedTimes + 1 : 1
-
   return res.send(user)
 }
 
 const getUsers = (req, res) => {
-  data.forEach((user) => {
-    user.viewedTimes = user.viewedTimes ? user.viewedTimes + 1 : 1
-  })
+  const users = UserModel.findAll({ incrementViewedTimes: true })
 
-  return res.send(data)
+  return res.send(users)
 }
 
 module.exports = {
